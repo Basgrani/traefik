@@ -3,10 +3,10 @@
     <q-card-section>
       <div class="row items-center no-wrap">
         <div class="col">
-          <div class="text-h6 text-weight-bold">{{getName()}}</div>
+          <div class="text-h6 text-weight-bold">{{getName}}</div>
         </div>
         <div class="col-auto">
-          <q-btn :to="getUrl()" color="accent" dense flat icon-right="eva-arrow-forward-outline" no-caps label="Explore" size="md" class="text-weight-bold"/>
+          <q-btn :to="getUrl" color="accent" dense flat icon-right="eva-arrow-forward-outline" no-caps label="Explore" size="md" class="text-weight-bold"/>
         </div>
       </div>
     </q-card-section>
@@ -90,13 +90,15 @@ export default {
       }
     }
   },
-  methods: {
+  computed: {
     getName () {
       return Helps.capFirstLetter(this.name)
     },
     getUrl () {
-      return `/${this.type}/${this.getName().toLowerCase()}`
-    },
+      return `/${this.type}/${this.getName.toLowerCase()}`
+    }
+  },
+  methods: {
     getSuccess (inPercent = false) {
       const num = this.data.total - (this.data.errors + this.data.warnings)
       let result = 0

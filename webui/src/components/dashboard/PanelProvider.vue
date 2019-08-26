@@ -4,14 +4,14 @@
       <div class="row items-center no-wrap">
         <div class="col text-center">
           <q-avatar class="provider-logo">
-            <q-icon :name="`img:statics/providers/${getNameLogo()}.svg`" />
+            <q-icon :name="`img:statics/providers/${getNameLogo}.svg`" />
           </q-avatar>
         </div>
       </div>
     </q-card-section>
     <q-card-section>
       <div class="text-h6 text-center text-weight-bold">
-        {{getName()}}
+        {{getName}}
       </div>
     </q-card-section>
   </q-card>
@@ -21,12 +21,12 @@
 export default {
   name: 'PanelProvider',
   props: ['name'],
-  methods: {
+  computed: {
     getName () {
       return this.name
     },
     getNameLogo () {
-      return this.getName().toLowerCase()
+      return this.getName.toLowerCase()
     }
   }
 }
@@ -39,8 +39,8 @@ export default {
     width: 52px;
     height: 52px;
     img {
-      width: 52px;
-      height: 52px;
+      width: 100%;
+      height: 100%;
     }
   }
 </style>

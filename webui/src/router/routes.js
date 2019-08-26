@@ -14,8 +14,8 @@ const routes = [
         }
       }
     ]
-  }
-  /* {
+  },
+  {
     path: '/http',
     redirect: '/http/routers',
     component: LayoutDefault,
@@ -88,7 +88,7 @@ const routes = [
         }
       }
     ]
-  } */
+  }
 ]
 
 // Always leave this as last one

@@ -107,7 +107,7 @@ export default {
       } else {
         result = num
       }
-      return isNaN(result) ? 0 : result
+      return isNaN(result) || result < 0 ? 0 : result
     },
     getWarnings (inPercent = false) {
       const num = this.data.warnings
@@ -117,7 +117,7 @@ export default {
       } else {
         result = num
       }
-      return isNaN(result) ? 0 : result
+      return isNaN(result) || result < 0 ? 0 : result
     },
     getErrors (inPercent = false) {
       const num = this.data.errors
@@ -127,7 +127,7 @@ export default {
       } else {
         result = num
       }
-      return isNaN(result) ? 0 : result
+      return isNaN(result) || result < 0 ? 0 : result
     },
     getData () {
       return [this.getSuccess(), this.getWarnings(), this.getErrors()]

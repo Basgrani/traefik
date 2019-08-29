@@ -3,11 +3,15 @@ import { APP } from '../_helpers/APP'
 const apiBase = '/http'
 
 function getAllRouters (params) {
-  return APP.api.get(`${apiBase}/routers?search=${params.query}&status=${params.status}&per_page=${params.limit}&page=${params.page}`)
+  return APP.api.get(`${apiBase}/routers?search=${params.query}&status=${params.status}`)
     .then(body => {
-      console.log('Success -> HttpService -> getAllRouters', body.data)
-      // TODO - add the correct total from api
-      return { data: body.data || [], total: 16 }
+      const total = body.data ? body.data.length : 0
+      return APP.api.get(`${apiBase}/routers?search=${params.query}&status=${params.status}&per_page=${params.limit}&page=${params.page}`)
+        .then(body => {
+          console.log('Success -> HttpService -> getAllRouters', body.headers)
+          // TODO - suggestion: add the total-pages in api response to optimize the query
+          return { data: body.data || [], total }
+        })
     })
 }
 

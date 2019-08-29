@@ -157,6 +157,18 @@ export default {
           }
         }
       }
+      .q-table__bottom {
+        > .q-table__control {
+          &:nth-last-child(2) {
+            display: none;
+          }
+          &:nth-last-child(1) {
+            .q-table__bottom-item {
+              display: none;
+            }
+          }
+        }
+      }
     }
   }
 
